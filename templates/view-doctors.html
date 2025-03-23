@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Doctors - Hospital Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="index-body">
+    <div class="container1">
+      <h1>View Doctors</h1>
+      <input type="text" id="search" oninput="searchDoctors()" placeholder="Search doctors" />
+      <table id="doctor-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Experience</th>
+            <th>Consultation Fee</th>
+            <th>Set Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for doctor in doctors %}
+            <tr>
+              <td data-label="Name">{{ doctor.name }}</td>
+              <td data-label="Specialization">{{ doctor.specialization }}</td>
+              <td data-label="Mobile">{{ doctor.mobile }}</td>
+              <td data-label="Email">{{ doctor.email }}</td>
+              <td data-label="Experience">{{ doctor.experience }} years</td>
+              <td data-label="Consultation Fee">₹{{ doctor.consultation_fee }}</td>
+              <td data-label="Set Availability">
+                <button onclick="setAvailability('{{ doctor.name }}')" class="btn" style="width: 100%;">Set Availability</button>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="btn1 btn3">
+        <button onclick="location.href='{{ url_for('home') }}';">Home</button>
+      </div>
+    </div>
+
+    <!-- Modal for setting availability -->
+    <div id="availabilityModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Set Availability for <span id="doctorName"></span></h2>
+        <form id="availabilityForm">
+          <label for="start-time">Start Time:</label>
+          <input type="time" id="start-time" name="start-time" required />
+
+          <label for="break-start">Break Start Time:</label>
+          <input type="time" id="break-start" name="break-start" required />
+
+          <label for="break-end">Break End Time:</label>
+          <input type="time" id="break-end" name="break-end" required />
+
+          <label for="end-time">End Time:</label>
+          <input type="time" id="end-time" name="end-time" required />
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal for selecting slots -->
+    <div id="slotModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeSlotModal()">&times;</span>
+        <h2>Select Slot for <span id="slotDoctorName"></span></h2>
+        <div id="slotsContainer">
+          <!-- Slots will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/view-doctors.js') }}"></script>
+  </body>
+</html>

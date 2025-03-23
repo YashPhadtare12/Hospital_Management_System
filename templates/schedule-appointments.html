@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="body-add">
+    <header>
+      <h1>Schedule Appointment</h1>
+      <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('add_patient') }}" class="nav-link">Add New Patients</a>
+        <a href="{{ url_for('view_appointments') }}" class="nav-link">View Appointments</a>
+        <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+      </nav>
+    </header>
+    <div class="container1 container2">
+      <form id="appointment-form" method="POST" action="{{ url_for('schedule_appointment') }}">
+        <label for="patient-name">Patient Name:</label>
+        <select id="patient-name" name="patient-name" required>
+          <option value="">Select Patient</option>
+          {% for patient in patients %}
+            <option value="{{ patient.name }}">{{ patient.name }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="doctor">Doctor:</label>
+        <select id="doctor" name="doctor" required onchange="loadDoctorSlots()">
+          <option value="">Select Doctor</option>
+          {% for doctor in doctors %}
+            <option value="{{ doctor.name }}">{{ doctor.name }} ({{ doctor.specialization }})</option>
+          {% endfor %}
+        </select>
+
+        <label for="date">Date of Appointment:</label>
+        <input type="date" id="date" name="date" required onchange="loadDoctorSlots()" />
+
+        <label for="slot">Appointment Slot:</label>
+        <div id="slot-container">
+          <!-- Slots will be dynamically populated here -->
+        </div>
+
+        <input type="hidden" id="selected-slot" name="slot" required />
+
+        <div class="btn-end">
+          <button type="reset" class="btn btn-2">Reset</button>
+          <button type="submit" class="btn">Schedule Appointment</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function loadDoctorSlots() {
+        const doctorName = document.getElementById("doctor").value;
+        const date = document.getElementById("date").value;
+
+        if (!doctorName || !date) {
+          return;
+        }
+
+        fetch(`/get-doctor-slots?doctor=${doctorName}&date=${date}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const slotContainer = document.getElementById("slot-container");
+            slotContainer.innerHTML = "";
+
+            data.slots.forEach((slot) => {
+              const slotOption = document.createElement("div");
+              slotOption.className = `slot-option ${slot.booked ? "booked" : ""}`;
+              slotOption.textContent = slot.time;
+              if (!slot.booked) {
+                slotOption.onclick = () => selectSlot(slot.time);
+              }
+              slotContainer.appendChild(slotOption);
+            });
+          });
+      }
+
+      function selectSlot(slot) {
+        const slotOptions = document.querySelectorAll(".slot-option");
+        slotOptions.forEach((option) => option.classList.remove("selected"));
+
+        const selectedSlot = Array.from(slotOptions).find(
+          (option) => option.textContent.trim() === slot
+        );
+        if (selectedSlot) {
+          selectedSlot.classList.add("selected");
+        }
+
+        document.getElementById("selected-slot").value = slot;
+      }
+    </script>
+  </body>
+</html>

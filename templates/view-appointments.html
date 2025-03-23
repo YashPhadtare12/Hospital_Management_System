@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Appointments - Hospital Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="index-body">
+    <div class="container1">
+      <h1>View Appointments</h1>
+      <input
+        type="text"
+        id="search"
+        oninput="searchAppointments()"
+        placeholder="Search appointments"
+      />
+      <table id="appointment-table">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for appointment in appointments %}
+            <tr>
+              <td data-label="Patient Name">{{ appointment.patient_name }}</td>
+              <td data-label="Doctor">{{ appointment.doctor }}</td>
+              <td data-label="Date">{{ appointment.date }}</td>
+              <td data-label="Time">{{ appointment.time }}</td>
+              <td data-label="Status">{{ appointment.status }}</td>
+              <td data-label="Actions">
+                <button class=" del-btn" style="width: 100%;" onclick="deleteAppointment('{{ appointment.patient_name }}', '{{ appointment.date }}', '{{ appointment.time }}')">Delete</button>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="main-btn">
+        <button onclick="location.href='{{ url_for('home') }}';" class="btn">Home</button>
+        <button onclick="location.href='{{ url_for('schedule_appointment') }}';" class="btn">Schedule Appointment</button>
+        <button onclick="exportAppointments()" class="btn">Export as Excel file</button>
+      </div>
+      <footer>
+        <a href="{{ url_for('logout') }}" class="btn but-main">Logout</a>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/view-appointments.js') }}"></script>
+  </body>
+</html>

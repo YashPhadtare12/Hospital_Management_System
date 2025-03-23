@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Patients - Hospital Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="index-body">
+    <div class="container1">
+      <h1>View Patients</h1>
+      <input type="text" id="search" oninput="searchPatients()" placeholder="Search patients" />
+      <table id="patient-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for patient in patients %}
+            <tr>
+              <td data-label="Name">{{ patient.name }}</td>
+              <td data-label="Mobile">{{ patient.mobile }}</td>
+              <td data-label="Email">{{ patient.email }}</td>
+              <td data-label="Gender">{{ patient.gender }}</td>
+              <td data-label="Date of Birth">{{ patient.dob }}</td>
+              <td data-label="Address">{{ patient.address }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="btn1 btn3">
+        <button onclick="location.href='{{ url_for('home') }}';">Home</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/view-patients.js') }}"></script>
+  </body>
+</html>

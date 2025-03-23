@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Doctor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="body-add">
+    <header>
+      <h1>Add New Doctor</h1>
+      <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('schedule_appointment') }}" class="nav-link">Schedule Appointments</a>
+        <a href="{{ url_for('view_appointments') }}" class="nav-link">View Appointments</a>
+        <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+      </nav>
+    </header>
+    <div class="container1 container2">
+      <form id="doctor-form" method="POST" action="{{ url_for('add_doctor') }}">
+        <label for="doctor-name">Doctor Name:</label>
+        <input type="text" id="doctor-name" name="doctor-name" placeholder="Doctor's Full Name" required />
+
+        <label for="mobile">Mobile No:</label>
+        <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" required />
+
+        <label for="email">Email Id:</label>
+        <input type="email" name="email" id="email" placeholder="Email Id" required />
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select Option</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" placeholder="Enter Address Here" required></textarea>
+
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" name="specialization" placeholder="Enter Specialization" required />
+
+        <label for="experience">Years of Experience:</label>
+        <input type="number" id="experience" name="experience" placeholder="Enter Years of Experience" required />
+
+        <label for="qualification">Qualification:</label>
+        <input type="text" id="qualification" name="qualification" placeholder="Enter Qualification" required />
+
+        <label for="consultation-fee">Consultation Fee (₹):</label>
+        <input type="number" id="consultation-fee" name="consultation-fee" placeholder="Enter Consultation Fee" required />
+
+        <div class="btn-end">
+          <button type="reset" class="btn btn-2">Reset</button>
+          <button type="submit" class="btn">Add Doctor</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

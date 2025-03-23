@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Hospital Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="body">
+    <div class="container">
+      <h1>Login</h1>
+      <div class="username">
+        <input type="text" id="username" placeholder="Username" />
+      </div>
+      <div class="pass">
+        <input type="password" id="password" placeholder="Password" />
+      </div>
+      <div class="but but3">
+        <button onclick="login()" class="but-main">Login</button>
+      </div>
+      <div class="para">
+        <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+  </body>
+</html>

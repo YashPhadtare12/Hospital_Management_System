@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Hospital Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  </head>
+  <body class="body">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <input type="text" id="name" placeholder="Full Name" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="signup()"  class="but-main">Sign Up</button>
+      <p class="para">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/signup.js') }}"></script>
+  </body>
+</html>
