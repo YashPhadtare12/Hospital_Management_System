@@ -1,0 +1,192 @@
+{
+    "users": [
+        {
+            "name": "Template",
+            "email": "template@email.com",
+            "username": "Template",
+            "password": "123"
+        },
+        {
+            "name": "Yash Phadtare",
+            "email": "yashphadtare211@gmail.com",
+            "username": "Yash",
+            "password": "123"
+        }
+    ],
+    "Template": {
+        "doctors": [
+            {
+                "name": "Dr. Karan Ganesh Jaybhay",
+                "mobile": "9852647723",
+                "email": "karan@123",
+                "gender": "Male",
+                "dob": "1992-05-17",
+                "address": "ABC",
+                "specialization": "General Physician",
+                "experience": "12",
+                "qualification": "MBBS",
+                "consultation_fee": "200"
+            },
+            {
+                "name": "Dr. Pruthviraj Bhoite",
+                "mobile": "8921364598",
+                "email": "yashphadtare211@gmail.com",
+                "gender": "Male",
+                "dob": "2005-06-12",
+                "address": "ABC",
+                "specialization": "Cardiologist",
+                "experience": "20",
+                "qualification": "MBBS",
+                "consultation_fee": "200"
+            }
+        ],
+        "appointments": [
+            {
+                "patient_name": "Shubham Salunke",
+                "doctor": "Dr. Pruthviraj Bhoite",
+                "date": "2025-03-20",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Yash Phadtare",
+                "doctor": "Dr. Karan Ganesh Jaybhay",
+                "date": "2025-03-20",
+                "time": "09:15 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Dhiraj Gaikwad",
+                "doctor": "Dr. Karan Ganesh Jaybhay",
+                "date": "2025-03-20",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Shubham Salunke",
+                "doctor": "Dr. Pruthviraj Bhoite",
+                "date": "2025-03-27",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            }
+        ],
+        "patients": [
+            {
+                "name": "Shubham Salunke",
+                "mobile": "8975253215",
+                "email": "shubham@gmail.ccom",
+                "gender": "Male",
+                "address": "Korti",
+                "dob": "2004-12-10"
+            },
+            {
+                "name": "Yash Phadtare",
+                "mobile": "8999612125",
+                "email": "yashphadtare1@gmail.ccom",
+                "gender": "Male",
+                "address": "Malegaon Bk",
+                "dob": "2005-06-12"
+            },
+            {
+                "name": "Dhiraj Gaikwad",
+                "mobile": "8945259815",
+                "email": "dhiraj@gmail.ccom",
+                "gender": "Male",
+                "address": "Bhawda, Indapur",
+                "dob": "2004-10-02"
+            }
+        ]
+    },
+    "Yash": {
+        "doctors": [
+            {
+                "name": "Dr. Karan Ganesh Jaybhay",
+                "mobile": "9852647723",
+                "email": "karan@123",
+                "gender": "Male",
+                "dob": "1992-05-17",
+                "address": "ABC",
+                "specialization": "General Physician",
+                "experience": "12",
+                "qualification": "MBBS",
+                "consultation_fee": "200",
+                "start_time": "09:00",
+                "break_start": "13:30",
+                "break_end": "16:00",
+                "end_time": "19:30"
+            },
+            {
+                "name": "Dr. Pruthviraj Bhoite",
+                "mobile": "8921364598",
+                "email": "yashphadtare211@gmail.com",
+                "gender": "Male",
+                "dob": "2005-06-12",
+                "address": "ABC",
+                "specialization": "Cardiologist",
+                "experience": "20",
+                "qualification": "MBBS",
+                "consultation_fee": "200",
+                "start_time": "09:30",
+                "break_start": "13:00",
+                "break_end": "16:00",
+                "end_time": "20:30"
+            }
+        ],
+        "appointments": [
+            {
+                "patient_name": "Shubham Salunke",
+                "doctor": "Dr. Pruthviraj Bhoite",
+                "date": "2025-03-20",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Yash Phadtare",
+                "doctor": "Dr. Karan Ganesh Jaybhay",
+                "date": "2025-03-20",
+                "time": "09:15 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Dhiraj Gaikwad",
+                "doctor": "Dr. Karan Ganesh Jaybhay",
+                "date": "2025-03-20",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            },
+            {
+                "patient_name": "Shubham Salunke",
+                "doctor": "Dr. Pruthviraj Bhoite",
+                "date": "2025-03-27",
+                "time": "09:30 AM",
+                "status": "Scheduled"
+            }
+        ],
+        "patients": [
+            {
+                "name": "Shubham Salunke",
+                "mobile": "8975253215",
+                "email": "shubham@gmail.ccom",
+                "gender": "Male",
+                "address": "Korti",
+                "dob": "2004-12-10"
+            },
+            {
+                "name": "Yash Phadtare",
+                "mobile": "8999612125",
+                "email": "yashphadtare1@gmail.ccom",
+                "gender": "Male",
+                "address": "Malegaon Bk",
+                "dob": "2005-06-12"
+            },
+            {
+                "name": "Dhiraj Gaikwad",
+                "mobile": "8945259815",
+                "email": "dhiraj@gmail.ccom",
+                "gender": "Male",
+                "address": "Bhawda, Indapur",
+                "dob": "2004-10-02"
+            }
+        ]
+    }
+}
